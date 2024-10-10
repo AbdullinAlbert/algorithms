@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File("input.txt"));
         int n = sc.nextInt();
-        int[] a = new int[n];
         int[] b = new int[n];
 
         if (n < 6) {
@@ -38,12 +37,6 @@ public class Main {
             return;
         }
 
-        a[0] = 2;
-        a[1] = 3;
-        a[2] = 4;
-        a[3] = 7;
-        a[4] = 13;
-
         b[0] = 1;
         b[1] = 5;
         b[2] = 6;
@@ -55,9 +48,13 @@ public class Main {
 
         int j = 8;
         int i = 5;
+
+        int a1 = 13;
+
         while (j < n) {
-            a[i] = b[i - 1] + b[i - 3];
-            for (int k = a[i - 1] + 1; (k < a[i]) && (j < n); k++, j++) b[j] = k;
+            int a2 = b[i - 1] + b[i - 3];
+            for (int k = a1 + 1; (k < a2) && (j < n); k++, j++) b[j] = k;
+            a1 = a2;
             i++;
         }
         PrintWriter pw = new PrintWriter("output.txt");
