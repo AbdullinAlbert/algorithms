@@ -17,10 +17,9 @@ class Solution {
 
         void add(int val) {
             Element e = new Element(val);
-            if (first == null) first = e;
-            else if (last == null) {
-                last = e;
-                first.next = last;
+            if (first == null) {
+                first = e;
+                last = first;
             } else {
                 last.next = e;
                 last = e;
